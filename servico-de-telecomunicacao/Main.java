@@ -9,12 +9,20 @@ public class Main {
         boolean bandaLargaContratada = false;
         boolean tvContratada = false;
 
-        // TODO: Itere sobre os serviços contratados
+        // Itera sobre os serviços contratados
         for (String servico : servicosContratados) {
+            servico = servico.trim(); // Remove espaços em branco desnecessários
+            if (servico.equalsIgnoreCase("movel")) {
+                movelContratado = true;
+            } else if (servico.equalsIgnoreCase("banda larga")) {
+                bandaLargaContratada = true;
+            } else if (servico.equalsIgnoreCase("tv")) {
+                tvContratada = true;
+            }
         }
 
-        // TODO: Verifique se todos os serviços foram contratados
-        if () {
+        // Verifica se todos os serviços foram contratados
+        if (movelContratado && bandaLargaContratada && tvContratada) {
             return "Combo Completo";
         } else {
             return "Combo Incompleto";
@@ -23,8 +31,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        // Solicitando ao usuário a lista de serviços contratados
+ 
         String input = scanner.nextLine();
 
         // Convertendo a entrada em uma lista de strings
